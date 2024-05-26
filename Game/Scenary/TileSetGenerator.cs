@@ -15,7 +15,7 @@ public partial class TileSetGenerator : Node2D
 	{
 	}
 
-	public TileMap getTileSet(int idx = 0)
+	public TileMap getTileSet(int level = 0)
 	{
 		String[] tiles = {
 			"Padrao101",
@@ -30,7 +30,12 @@ public partial class TileSetGenerator : Node2D
 			"Padrao110",
 		};
 
-		return this.GetNode<TileMap>(tiles[GD.RandRange(0, tiles.Length - 1)]);
+
+		TileMap tilemap = this.GetNode<TileMap>(tiles[GD.RandRange(0, tiles.Length - 1)]);
+		//TileSet tileset = tilemap.TileSet;
+		//TileSetAtlasSource atlas = (TileSetAtlasSource)tileset.GetSource(0);
+		// atlas.Margins = new Vector2I(0, level * 16);
+		return tilemap;
 	}
 }
 

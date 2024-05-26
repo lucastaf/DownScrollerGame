@@ -1,0 +1,197 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1hgk0eddexxu"]
+
+[ext_resource type="Texture2D" uid="uid://dsq84nhofkx4n" path="res://brackeys_platformer_assets/sprites/platforms.png" id="1_2pff6"]
+[ext_resource type="Script" path="res://Game/Menus/Shop.cs" id="1_7n3b5"]
+[ext_resource type="FontFile" uid="uid://ddfcif85cqbph" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_ikln3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hus51"]
+atlas = ExtResource("1_2pff6")
+region = Rect2(0, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m33gb"]
+atlas = ExtResource("1_2pff6")
+region = Rect2(0, 16, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmotb"]
+atlas = ExtResource("1_2pff6")
+region = Rect2(0, 32, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31x0b"]
+atlas = ExtResource("1_2pff6")
+region = Rect2(0, 48, 16, 9)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7n3b5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Itens" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Moedas" type="Label" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 30
+text = "Moedas: 0"
+
+[node name="HSeparator5" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="Floresta" type="HBoxContainer" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/Itens/Floresta"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_hus51")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Floresta"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Floresta"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 30
+text = "Floresta Verdejante"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Floresta"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Floresta"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 20
+text = "$0"
+
+[node name="HSeparator4" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="Colinas" type="HBoxContainer" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/Itens/Colinas"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_m33gb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Colinas"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Colinas"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 30
+text = "Colinas de outono"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Colinas"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Colinas"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 20
+text = "$200"
+
+[node name="HSeparator3" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="Deserto" type="HBoxContainer" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/Itens/Deserto"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_gmotb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Deserto"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Deserto"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 30
+text = "Deserto escaldante"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Deserto"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Deserto"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 20
+text = "$500"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="Gelo" type="HBoxContainer" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/Itens/Gelo"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_31x0b")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Gelo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Gelo"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 30
+text = "Floresta congelada"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Gelo"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Gelo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 20
+text = "$1000"
+
+[node name="HSeparator6" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/Itens"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ikln3")
+theme_override_font_sizes/font_size = 20
+text = "Voltar"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Colinas/Button" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Deserto/Button" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Gelo/Button" to="." method="_on_Level4_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/Itens/BackButton" to="." method="_on_back_button_pressed"]

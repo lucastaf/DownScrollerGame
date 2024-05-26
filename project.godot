@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="DownScrollerGame"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Game/MainGame.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Game/Global.cs"
 
 [dotnet]
 
@@ -31,4 +35,5 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

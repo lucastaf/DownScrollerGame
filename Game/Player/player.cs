@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 public partial class player : CharacterBody2D
 {
 	[Signal] public delegate void LevelPassedEventHandler();
+	[Signal] public delegate void PlayerOutOfScreenEventHandler();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 
@@ -66,5 +67,9 @@ public partial class player : CharacterBody2D
 		coin.QueueFree();
 		Label coinLabel = GetNode<Label>("Interface/CoinLabel");
 		coinLabel.Text = "Moedas: " + coinCount;
+	}
+
+	public void _on_visible_on_screen_notifier_2d_screen_exited(){
+		EmitSignal(SignalName.PlayerOutOfScreen);	
 	}
 }
