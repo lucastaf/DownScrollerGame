@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7kchjnm2fypq"]
+
+[ext_resource type="Script" path="res://Game/Scenary/AutoDeleteComponent.cs" id="1_k8xmo"]
+
+[node name="AutoDeleteComponent" type="VisibleOnScreenNotifier2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_k8xmo")
+
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]
