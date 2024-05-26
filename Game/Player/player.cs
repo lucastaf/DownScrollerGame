@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class player : CharacterBody2D
 {
@@ -7,6 +8,16 @@ public partial class player : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 
+	private int score = 0;
+	public int Score
+	{
+		get { return score; }
+	}
+	private int coinCount = 0;
+	public int CoinCount
+	{
+		get { return coinCount; }
+	}
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -40,8 +51,20 @@ public partial class player : CharacterBody2D
 		MoveAndSlide();
 	}
 
-	public void _on_plataform_detector_body_exited(Node2D teste)
+
+	public void _on_plataform_detector_body_exited(Node2D a)
 	{
+		this.score += 100;
 		EmitSignal(SignalName.LevelPassed);
+		Label scoreLabel = GetNode<Label>("Interface/ScoreLabel");
+		scoreLabel.Text = "Score: " + score;
+	}
+
+	public void _on_coin_collector_area_entered(Area2D coin)
+	{
+		this.coinCount++;
+		coin.QueueFree();
+		Label coinLabel = GetNode<Label>("Interface/CoinLabel");
+		coinLabel.Text = "Moedas: " + coinCount;
 	}
 }

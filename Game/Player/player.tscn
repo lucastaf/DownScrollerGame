@@ -1,7 +1,12 @@
-[gd_scene load_steps=61 format=3 uid="uid://prlghstseq33"]
+[gd_scene load_steps=63 format=3 uid="uid://prlghstseq33"]
 
 [ext_resource type="Script" path="res://Game/Player/player.cs" id="1_3ka8c"]
 [ext_resource type="Texture2D" uid="uid://d1ochwyykvrb8" path="res://brackeys_platformer_assets/sprites/knight.png" id="1_urgvf"]
+[ext_resource type="FontFile" uid="uid://ddfcif85cqbph" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_535jq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1jl4"]
+radius = 5.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rlen"]
 atlas = ExtResource("1_urgvf")
@@ -546,15 +551,18 @@ _data = {
 "Run": SubResource("Animation_f2q6c")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1jl4"]
-radius = 5.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t0on"]
+size = Vector2(9.5, 14.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2tpt"]
 size = Vector2(11, 3)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3ka8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_t1jl4")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -576,11 +584,14 @@ libraries = {
 "": SubResource("AnimationLibrary_1skcb")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_t1jl4")
-metadata/_edit_lock_ = true
-
 [node name="CoinCollector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="ColissionShape" type="CollisionShape2D" parent="CoinCollector"]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_3t0on")
+debug_color = Color(0.778816, 0.778816, 1.15514e-06, 0.419608)
 
 [node name="PlataformDetector" type="Area2D" parent="."]
 collision_layer = 4
@@ -590,5 +601,28 @@ collision_mask = 4
 position = Vector2(-0.5, -9)
 shape = SubResource("RectangleShape2D_f2tpt")
 debug_color = Color(1, 1, 1, 0.42)
+metadata/_edit_lock_ = true
 
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="CoinLabel" type="Label" parent="Interface"]
+texture_filter = 1
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 384.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_535jq")
+text = "Moedas : 0"
+
+[node name="ScoreLabel" type="Label" parent="Interface"]
+texture_filter = 1
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 105.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_535jq")
+text = "Score : 0"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="CoinCollector" to="." method="_on_coin_collector_area_entered"]
 [connection signal="body_exited" from="PlataformDetector" to="." method="_on_plataform_detector_body_exited"]

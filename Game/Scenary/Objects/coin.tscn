@@ -1,0 +1,112 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmcoyh5r7gmgb"]
+
+[ext_resource type="Texture2D" uid="uid://rqh3kd30buc" path="res://brackeys_platformer_assets/sprites/coin.png" id="1_pwrdf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g35fl"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfufi"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff54j"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0q8k"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhvbl"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4etra"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3ls1"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltqec"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_057jx"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enlec"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmdum"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrhg5"]
+atlas = ExtResource("1_pwrdf")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3lqnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g35fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfufi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff54j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0q8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhvbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4etra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltqec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_057jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enlec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmdum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrhg5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioatw"]
+size = Vector2(12, 12)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3lqnv")
+autoplay = "default"
+frame_progress = 0.52159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ioatw")
+debug_color = Color(0.974678, 0, 0.425023, 0.42)

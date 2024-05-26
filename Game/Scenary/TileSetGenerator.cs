@@ -21,9 +21,16 @@ public partial class TileSetGenerator : Node2D
 			"Padrao101",
 			"Padrao102",
 			"Padrao103",
+			"Padrao104",
+			"Padrao105",
+			"Padrao106",
+			"Padrao107",
+			"Padrao108",
+			"Padrao109",
+			"Padrao110",
 		};
 
-		return this.GetNode<TileMap>(tiles[idx]);
+		return this.GetNode<TileMap>(tiles[GD.RandRange(0, tiles.Length - 1)]);
 	}
 }
 
