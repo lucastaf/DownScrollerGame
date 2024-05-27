@@ -4,6 +4,7 @@
 
 [node name="AutoDeleteComponent" type="VisibleOnScreenNotifier2D"]
 position = Vector2(0, 1)
+rect = Rect2(-100, -10, 200, 20)
 script = ExtResource("1_k8xmo")
 
 [connection signal="screen_exited" from="." to="." method="_on_screen_exited"]

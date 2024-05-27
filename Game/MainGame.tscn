@@ -12,11 +12,10 @@ script = ExtResource("1_srox2")
 position = Vector2(-7, -25)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2.35, 2.35)
 
 [node name="TileMapGenerator" parent="." instance=ExtResource("3_y56bl")]
-visible = false
-position = Vector2(5, -514)
+position = Vector2(247, -390)
 
 [connection signal="LevelPassed" from="Player" to="." method="_on_player_level_passed"]
 [connection signal="PlayerOutOfScreen" from="Player" to="." method="_on_player_player_out_of_screen"]

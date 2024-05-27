@@ -32,10 +32,12 @@ grow_vertical = 2
 script = ExtResource("1_7n3b5")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
 offset_left = -576.0
 offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_right = -12.0
+offset_bottom = 667.0
+scale = Vector2(0.8, 0.8)
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -66,21 +68,21 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Floresta"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Floresta Verdejante"
 
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Floresta"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Floresta"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 20
-text = "$0"
+theme_override_font_sizes/font_size = 15
+text = "Desbloqueado"
 
 [node name="HSeparator4" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
 layout_mode = 2
@@ -99,20 +101,20 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Colinas"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Colinas de outono"
 
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Colinas"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Colinas"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "$200"
 
 [node name="HSeparator3" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
@@ -132,20 +134,20 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Deserto"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Deserto escaldante"
 
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Deserto"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Deserto"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "$500"
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
@@ -165,20 +167,20 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/Itens/Gelo"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Floresta congelada"
 
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/Itens/Gelo"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/Itens/Gelo"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "$1000"
 
 [node name="HSeparator6" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
@@ -191,6 +193,7 @@ theme_override_fonts/font = ExtResource("2_ikln3")
 theme_override_font_sizes/font_size = 20
 text = "Voltar"
 
+[connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Floresta/Button" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Colinas/Button" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Deserto/Button" to="." method="_on_Level3_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/Itens/Gelo/Button" to="." method="_on_Level4_pressed"]

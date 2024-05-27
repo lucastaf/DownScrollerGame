@@ -4,10 +4,13 @@ using System.Runtime.CompilerServices;
 
 public partial class TileSetGenerator : Node2D
 {
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		TileMap tilemap = this.GetNode<TileMap>("Padrao101");
+		TileSet tileset = tilemap.TileSet;
+		TileSetAtlasSource atlas = (TileSetAtlasSource)tileset.GetSource(0);
+		atlas.Margins = new Vector2I(0, Global.selectedLevel * 16);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,27 +18,30 @@ public partial class TileSetGenerator : Node2D
 	{
 	}
 
-	public TileMap getTileSet(int level = 0)
+	public TileMap GetTileSet()
 	{
 		String[] tiles = {
-			"Padrao101",
-			"Padrao102",
-			"Padrao103",
-			"Padrao104",
-			"Padrao105",
-			"Padrao106",
-			"Padrao107",
-			"Padrao108",
-			"Padrao109",
-			"Padrao110",
+			"Padrao201",
+			
+
+			"Padrao202",
+			"Padrao203",
+			"Padrao204",
+			"Padrao205",
+			"Padrao206",
+			"Padrao207",
+			"Padrao208",
+			"Padrao209",
+			"Padrao210",
+			"Padrao211",
+			"Padrao212",
+			"Padrao213",
+			"Padrao214",
+			"Padrao215",
+			
 		};
 
-
-		TileMap tilemap = this.GetNode<TileMap>(tiles[GD.RandRange(0, tiles.Length - 1)]);
-		//TileSet tileset = tilemap.TileSet;
-		//TileSetAtlasSource atlas = (TileSetAtlasSource)tileset.GetSource(0);
-		// atlas.Margins = new Vector2I(0, level * 16);
-		return tilemap;
+		return this.GetNode<TileMap>(tiles[GD.RandRange(0, tiles.Length - 1)]);
 	}
 }
 

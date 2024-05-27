@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="DownScrollerGame"
-run/main_scene="res://Game/MainGame.tscn"
+run/main_scene="res://Game/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Game/Global.cs"
+
+[display]
+
+window/size/viewport_width=450
+window/size/viewport_height=800
+window/size/resizable=false
 
 [dotnet]
 

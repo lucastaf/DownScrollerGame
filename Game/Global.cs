@@ -1,26 +1,22 @@
 using Godot;
 using System;
 
-public static class Global
+public partial class Global : Node
 {
 
-	public static int coins = 1000;
+	public static int coins = 5000;
 	public static int highScore = 0;
 
 	public static int selectedLevel = 0;
 
-	public static class shop
+	public static class currentLevel
 	{
-		public enum levels
-		{
-			forestLevel,
-			hillsLevel,
-			desertLevel,
-			iceLevel
-		}
-		public static bool forestLevel = true;
-		public static bool hillsLevel = false;
-		public static bool desertLevel = false;
-		public static bool iceLevel = false;
+		public static int coins = 0;
+		public static int score = 0;
 	}
+
+	public static bool[] levels = [
+		true, false, false, false
+	];
+
 }

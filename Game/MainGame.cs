@@ -11,7 +11,9 @@ public partial class MainGame : Node2D
 		Node2D autoDeleteComponent = (Node2D)ResourceLoader.Load<PackedScene>("res://Game/Scenary/auto_delete_component.tscn").Instantiate();
 
 
-		TileMap gettedTile = newLineGenerator.getTileSet(3);
+		TileMap gettedTile = newLineGenerator.GetTileSet();
+
+		gettedTile.Visible = true;
 
 		PackedScene tileScene = new PackedScene();
 		tileScene.Pack(gettedTile);
@@ -25,7 +27,7 @@ public partial class MainGame : Node2D
 	public override void _Ready()
 	{
 		newLineGenerator = GetNode<TileSetGenerator>("TileMapGenerator");
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			generateNewLine();
 		}
@@ -45,18 +47,22 @@ public partial class MainGame : Node2D
 		camera.GlobalPosition += new Vector2(0, velocity);
 		if (player.GlobalPosition.Y > camera.GlobalPosition.Y)
 		{
-			camera.GlobalPosition = new Vector2(camera.GlobalPosition.X,
+			camera.GlobalPosition = new Vector2(0,
 			player.GlobalPosition.Y
 			);
 		}
 		velocity += 0.001f;
 	}
 
-	public void _on_player_player_out_of_screen(){
+	public void _on_player_player_out_of_screen()
+	{
 		Node2D camera = this.GetNode<Node2D>("Camera2D");
-		Node2D player = GetNode<Node2D>("Player");
-		if(player.GlobalPosition.Y < camera.GlobalPosition.Y){
-			GetTree().ReloadCurrentScene();
+		player player = GetNode<player>("Player");
+		if (player.GlobalPosition.Y < camera.GlobalPosition.Y)
+		{
+			Global.currentLevel.score = player.Score;
+			Global.currentLevel.coins = player.CoinCount;
+			GetTree().ChangeSceneToFile("res://Game/Menus/DeathScreen.tscn");
 		}
 	}
 }
