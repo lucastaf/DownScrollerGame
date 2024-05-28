@@ -4,7 +4,7 @@ using System;
 public partial class Global : Node
 {
 
-	public static int coins = 5000;
+	public static int coins = 0;
 	public static int highScore = 0;
 
 	public static int selectedLevel = 0;

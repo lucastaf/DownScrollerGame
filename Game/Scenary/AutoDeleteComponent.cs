@@ -15,6 +15,10 @@ public partial class AutoDeleteComponent : VisibleOnScreenNotifier2D
 
 	public void _on_screen_exited()
 	{
-		this.QueueFree();	
+		Camera2D camera = GetViewport().GetCamera2D();
+		if (camera.GlobalPosition.Y > this.GlobalPosition.Y)
+		{
+			this.QueueFree();
+		}
 	}
 }

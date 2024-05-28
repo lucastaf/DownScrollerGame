@@ -1,6 +1,6 @@
-[gd_scene load_steps=63 format=3 uid="uid://prlghstseq33"]
+[gd_scene load_steps=62 format=3 uid="uid://prlghstseq33"]
 
-[ext_resource type="Script" path="res://Game/Player/player.cs" id="1_3ka8c"]
+[ext_resource type="Script" path="res://Game/Player/Player.cs" id="1_e3p5j"]
 [ext_resource type="Texture2D" uid="uid://d1ochwyykvrb8" path="res://brackeys_platformer_assets/sprites/knight.png" id="1_urgvf"]
 [ext_resource type="FontFile" uid="uid://ddfcif85cqbph" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_535jq"]
 
@@ -318,24 +318,20 @@ animation = &"Roll"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yalg7"]
 animation = &"RollEnd"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gyl8b"]
-animation = &"RollStart"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q1di4"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ukuch"]
 advance_mode = 2
 advance_expression = "self.get(\"parameters/conditions/isRolling\") != true"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6kie"]
-advance_mode = 2
-advance_condition = &"isRolling"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cgyq1"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xjhgm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pcckt"]
+advance_mode = 2
+advance_condition = &"isRolling"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aompr"]
 states/IW/node = SubResource("AnimationNodeBlendSpace1D_g5uyw")
@@ -344,10 +340,8 @@ states/Roll/node = SubResource("AnimationNodeAnimation_hqegc")
 states/Roll/position = Vector2(407, -105)
 states/RollEnd/node = SubResource("AnimationNodeAnimation_yalg7")
 states/RollEnd/position = Vector2(515, -15)
-states/RollStart/node = SubResource("AnimationNodeAnimation_gyl8b")
-states/RollStart/position = Vector2(303, -15)
-transitions = ["RollStart", "Roll", SubResource("AnimationNodeStateMachineTransition_q1di4"), "Roll", "RollEnd", SubResource("AnimationNodeStateMachineTransition_ukuch"), "IW", "RollStart", SubResource("AnimationNodeStateMachineTransition_l6kie"), "RollEnd", "IW", SubResource("AnimationNodeStateMachineTransition_cgyq1")]
-graph_offset = Vector2(-31, -131)
+transitions = ["Roll", "RollEnd", SubResource("AnimationNodeStateMachineTransition_ukuch"), "RollEnd", "IW", SubResource("AnimationNodeStateMachineTransition_cgyq1"), "Start", "IW", SubResource("AnimationNodeStateMachineTransition_xjhgm"), "IW", "Roll", SubResource("AnimationNodeStateMachineTransition_pcckt")]
+graph_offset = Vector2(23, -137)
 
 [sub_resource type="Animation" id="Animation_qvsq5"]
 length = 0.8
@@ -558,7 +552,7 @@ size = Vector2(9.5, 14.5)
 size = Vector2(11, 3)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_3ka8c")
+script = ExtResource("1_e3p5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_t1jl4")
@@ -568,15 +562,15 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ut72f")
-animation = &"Run"
-frame = 15
+animation = &"Idle"
+frame = 3
 metadata/_edit_lock_ = true
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
 tree_root = SubResource("AnimationNodeStateMachine_aompr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/isRolling = false
-parameters/IW/blend_position = 0.904762
+parameters/IW/blend_position = -0.159241
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 active = false

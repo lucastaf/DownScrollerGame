@@ -69,17 +69,17 @@ public partial class Shop : Control
 
 	public void _on_Level2_pressed()
 	{
-		levelClick(1, 200);
+		levelClick(1, 500);
 	}
 
 	public void _on_Level3_pressed()
 	{
-		levelClick(2, 500);
+		levelClick(2, 1000);
 	}
 
 	public void _on_Level4_pressed()
 	{
-		levelClick(3, 1000);
+		levelClick(3, 2000);
 	}
 
 }

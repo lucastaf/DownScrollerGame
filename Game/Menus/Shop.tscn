@@ -115,7 +115,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
 theme_override_font_sizes/font_size = 15
-text = "$200"
+text = "$500"
 
 [node name="HSeparator3" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
 layout_mode = 2
@@ -148,7 +148,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
 theme_override_font_sizes/font_size = 15
-text = "$500"
+text = "$1000"
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
 layout_mode = 2
@@ -181,7 +181,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ikln3")
 theme_override_font_sizes/font_size = 15
-text = "$1000"
+text = "$2000"
 
 [node name="HSeparator6" type="HSeparator" parent="CenterContainer/PanelContainer/Itens"]
 layout_mode = 2

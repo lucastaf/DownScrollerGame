@@ -43,7 +43,7 @@ public partial class MainGame : Node2D
 	public override void _Process(double delta)
 	{
 		Node2D camera = this.GetNode<Node2D>("Camera2D");
-		CharacterBody2D player = GetNode<CharacterBody2D>("Player");
+		Player player = GetNode<Player>("Player");
 		camera.GlobalPosition += new Vector2(0, velocity);
 		if (player.GlobalPosition.Y > camera.GlobalPosition.Y)
 		{
@@ -51,13 +51,16 @@ public partial class MainGame : Node2D
 			player.GlobalPosition.Y
 			);
 		}
-		velocity += 0.001f;
+		camera.Rotation = -player.Rotation;
+
+		velocity = (float)Math.Log(player.Score * 0.001f + 1, 1.3) / 5;
+		GD.Print(velocity);
 	}
 
 	public void _on_player_player_out_of_screen()
 	{
 		Node2D camera = this.GetNode<Node2D>("Camera2D");
-		player player = GetNode<player>("Player");
+		Player player = GetNode<Player>("Player");
 		if (player.GlobalPosition.Y < camera.GlobalPosition.Y)
 		{
 			Global.currentLevel.score = player.Score;

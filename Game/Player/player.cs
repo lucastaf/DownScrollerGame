@@ -1,8 +1,7 @@
 using Godot;
 using System;
-using System.Security.Cryptography.X509Certificates;
 
-public partial class player : CharacterBody2D
+public partial class Player : CharacterBody2D
 {
 	[Signal] public delegate void LevelPassedEventHandler();
 	[Signal] public delegate void PlayerOutOfScreenEventHandler();
@@ -25,6 +24,8 @@ public partial class player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		AnimationTree animationTree = this.GetNode<AnimationTree>("AnimatedSprite2D/AnimationTree");
+		AnimatedSprite2D sprite = this.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
@@ -34,7 +35,8 @@ public partial class player : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if(Input.GetAccelerometer() != Vector3.Zero){
+		if (Input.GetAccelerometer() != Vector3.Zero)
+		{
 			velocity.X = Input.GetAccelerometer().X * Speed;
 		}
 		else if (direction != Vector2.Zero)
@@ -45,6 +47,18 @@ public partial class player : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+
+		animationTree.Set("parameters/IW/blend_position", velocity);
+		animationTree.Set("parameters/conditions/isRolling", Math.Abs(velocity.X) > 100 ? true : false);
+		if (velocity.X > 0)
+		{
+			sprite.FlipH = false;
+		}
+		else if (velocity.X < 0)
+		{
+			sprite.FlipH = true;
+		}
+
 
 		Velocity = velocity;
 		Rotation = (float)(direction.X / 10);
@@ -68,7 +82,8 @@ public partial class player : CharacterBody2D
 		coinLabel.Text = "Moedas: " + coinCount;
 	}
 
-	public void _on_visible_on_screen_notifier_2d_screen_exited(){
-		EmitSignal(SignalName.PlayerOutOfScreen);	
+	public void _on_visible_on_screen_notifier_2d_screen_exited()
+	{
+		EmitSignal(SignalName.PlayerOutOfScreen);
 	}
 }
