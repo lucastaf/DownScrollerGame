@@ -15,6 +15,7 @@ public partial class DeathScreen : Control
 			GetNode<Label>("NewHighscore").Text = "NOVO HIGHSCORE!";
 			Global.highScore = Global.currentLevel.score;
 		}
+		Global.saveData();
 	}
 
 	public void _on_restart_pressed()

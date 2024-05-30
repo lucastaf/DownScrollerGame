@@ -51,7 +51,7 @@ public partial class MainGame : Node2D
 			player.GlobalPosition.Y
 			);
 		}
-		camera.Rotation = -player.Rotation;
+		camera.Rotation = -player.Rotation * 3;
 
 		velocity = (float)Math.Log(player.Score * 0.001f + 1, 1.3) / 5;
 		GD.Print(velocity);

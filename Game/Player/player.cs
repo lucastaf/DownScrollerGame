@@ -37,7 +37,7 @@ public partial class Player : CharacterBody2D
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (Input.GetAccelerometer() != Vector3.Zero)
 		{
-			velocity.X = Input.GetAccelerometer().X * Speed;
+			velocity.X = Input.GetAccelerometer().X / 7 * Speed;
 		}
 		else if (direction != Vector2.Zero)
 		{
